@@ -1,16 +1,15 @@
 // @flow
-import React, { Component, PropTypes } from 'react';
+import * as React from 'react';
 
-export default class App extends Component {
-  static propTypes = {
-    children: PropTypes.element.isRequired
-  };
+type Props = {
+  children: React.Node
+};
+
+export default class App extends React.Component<Props> {
+  props: Props;
 
   render() {
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    );
+    const { children } = this.props;
+    return <React.Fragment>{children}</React.Fragment>;
   }
 }
